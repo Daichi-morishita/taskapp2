@@ -112,6 +112,18 @@
                                     <constraint firstAttribute="height" constant="120" id="Ivy-Qh-h6M"/>
                                 </constraints>
                             </datePicker>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2uG-sN-Emn">
+                                <rect key="frame" x="0.0" y="495" width="414" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="bi0-lY-gkI"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnF-HH-rUF">
+                                <rect key="frame" x="10" y="464" width="394" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -121,22 +133,30 @@
                             <constraint firstItem="O7V-Cv-T9U" firstAttribute="top" secondItem="k33-4V-NZC" secondAttribute="bottom" constant="10" id="BPi-oO-YoE"/>
                             <constraint firstItem="af8-f7-bF6" firstAttribute="top" secondItem="mIU-ke-uGd" secondAttribute="top" constant="10" id="BSG-wC-qkg"/>
                             <constraint firstItem="Mn2-Qw-RIo" firstAttribute="leading" secondItem="ukf-C9-INs" secondAttribute="leading" id="Dyq-z8-ngy"/>
+                            <constraint firstItem="2uG-sN-Emn" firstAttribute="top" secondItem="wnF-HH-rUF" secondAttribute="bottom" constant="10" id="EzH-WQ-wKY"/>
                             <constraint firstItem="mIU-ke-uGd" firstAttribute="trailing" secondItem="af8-f7-bF6" secondAttribute="trailing" constant="10" id="MJN-fw-ikg"/>
                             <constraint firstItem="O7V-Cv-T9U" firstAttribute="leading" secondItem="mIU-ke-uGd" secondAttribute="leading" constant="10" id="MY7-bq-awF"/>
                             <constraint firstItem="mIU-ke-uGd" firstAttribute="trailing" secondItem="O7V-Cv-T9U" secondAttribute="trailing" constant="10" id="Msc-ft-pcC"/>
                             <constraint firstItem="af8-f7-bF6" firstAttribute="leading" secondItem="mIU-ke-uGd" secondAttribute="leading" constant="10" id="PO1-4v-qjC"/>
                             <constraint firstItem="mIU-ke-uGd" firstAttribute="trailing" secondItem="HW4-Zi-Wln" secondAttribute="trailing" constant="10" id="PUF-0F-25S"/>
                             <constraint firstItem="Mn2-Qw-RIo" firstAttribute="top" secondItem="O7V-Cv-T9U" secondAttribute="bottom" constant="10" id="QuX-er-I8q"/>
+                            <constraint firstItem="2uG-sN-Emn" firstAttribute="trailing" secondItem="mIU-ke-uGd" secondAttribute="trailing" id="U7d-fP-hqH"/>
+                            <constraint firstItem="wnF-HH-rUF" firstAttribute="leading" secondItem="mIU-ke-uGd" secondAttribute="leading" constant="10" id="WeT-fG-xYx"/>
+                            <constraint firstItem="2uG-sN-Emn" firstAttribute="leading" secondItem="mIU-ke-uGd" secondAttribute="leading" id="Zeq-Lc-AkF"/>
                             <constraint firstItem="HW4-Zi-Wln" firstAttribute="leading" secondItem="mIU-ke-uGd" secondAttribute="leading" constant="10" id="j6g-1H-vHO"/>
                             <constraint firstItem="k33-4V-NZC" firstAttribute="top" secondItem="HW4-Zi-Wln" secondAttribute="bottom" constant="10" id="k4N-uc-GAu"/>
+                            <constraint firstItem="wnF-HH-rUF" firstAttribute="top" secondItem="Mn2-Qw-RIo" secondAttribute="bottom" constant="10" id="sjj-AH-TPQ"/>
+                            <constraint firstItem="mIU-ke-uGd" firstAttribute="trailing" secondItem="wnF-HH-rUF" secondAttribute="trailing" constant="10" id="uZr-2U-Lbd"/>
                             <constraint firstItem="mIU-ke-uGd" firstAttribute="trailing" secondItem="k33-4V-NZC" secondAttribute="trailing" constant="10" id="y6q-aS-jfN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mIU-ke-uGd"/>
                     </view>
                     <navigationItem key="navigationItem" id="Djq-aB-WsG"/>
                     <connections>
+                        <outlet property="categoryLabel" destination="wnF-HH-rUF" id="K8m-OJ-TJ4"/>
                         <outlet property="contentsTextView" destination="O7V-Cv-T9U" id="djb-hY-Gc7"/>
                         <outlet property="datePicker" destination="Mn2-Qw-RIo" id="f45-wt-xxJ"/>
+                        <outlet property="pickerView" destination="2uG-sN-Emn" id="bs8-Cy-NcD"/>
                         <outlet property="titleTextField" destination="HW4-Zi-Wln" id="sXN-cR-Cq5"/>
                     </connections>
                 </viewController>

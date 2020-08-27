@@ -10,13 +10,16 @@ import UIKit
 import RealmSwift
 import UserNotifications
 
-class InputViewController: UIViewController {
+class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentsTextView: UITextView!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var pickerView: UIPickerView!
     
     let realm = try! Realm()
     var task: Task!
+    let dataList = ["仕事","プライベート","その他"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,40 @@ class InputViewController: UIViewController {
         titleTextField.text = task.title
         contentsTextView.text = task.contents
         datePicker.date = task.date
+        categoryLabel.text = task.cotegory
+        
+        // Delegate設定
+               pickerView.delegate = self
+               pickerView.dataSource = self
+        
+    }
+    // UIPickerViewの列の数
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // UIPickerViewの行数、リストの数
+    func pickerView(_ pickerView: UIPickerView,
+                    numberOfRowsInComponent component: Int) -> Int {
+        return dataList.count
+    }
+    
+    // UIPickerViewの最初の表示
+    func pickerView(_ pickerView: UIPickerView,
+                    titleForRow row: Int,
+                    forComponent component: Int) -> String? {
+        
+        return dataList[row]
+    }
+    
+    // UIPickerViewのRowが選択された時の挙動
+    func pickerView(_ pickerView: UIPickerView,
+                    didSelectRow row: Int,
+                    inComponent component: Int) {
+        
+         categoryLabel.text = dataList[row]
+        categoryLabel.textColor = UIColor.red
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -35,6 +72,7 @@ class InputViewController: UIViewController {
             self.task.title = self.titleTextField.text!
             self.task.contents = self.contentsTextView.text
             self.task.date = self.datePicker.date
+            self.task.cotegory = self.categoryLabel.text!
             self.realm.add(self.task, update: .modified)
         }
         setNotification(task: task)   // 追加
