@@ -10,22 +10,35 @@ import UIKit
 import RealmSwift
 import UserNotifications
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
-    // Realmインスタンスを取得する
+ // Realmインスタンスを取得する
     let realm = try! Realm()  // ←追加
-    
+
     // DB内のタスクが格納されるリスト。
     // 日付の近い順でソート：昇順
     // 以降内容をアップデートするとリスト内は自動的に更新される。
-    var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)  // ←追加
+    var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true) // ←追加
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
+        
+        
+        //デリゲート先を自分に設定する。
+               searchBar.delegate = self
+        searchBar.showsCancelButton = true
+        searchBar.enablesReturnKeyAutomatically = true
+
+               //何も入力されていなくてもReturnキーを押せるようにする。
+               searchBar.enablesReturnKeyAutomatically = false
+
+           
+        
     }
     
     // データの数（＝セルの数）を返すメソッド
@@ -89,6 +102,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
             }
         } // --- ここまで変更 ---
+    }
+    
+    //検索ボタン押下時の呼び出しメソッド
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        guard let searchText = searchBar.text else {return}
+       
+        //条件として、検索文字がカテゴリーと一致するものを検索すること
+        let result = realm.objects(Task.self).filter("category BEGINSWITH '\(String(describing: searchBar.text))'")
+       //検索結果の件数を取得する。
+        let count = result.count
+        
+        if (count == 0){
+            taskArray = realm.objects(Task.self)
+        }else {
+            taskArray = result
+        }
+        
+
+        //テーブルを再読み込みする。
+        tableView.reloadData()
     }
     
     /*

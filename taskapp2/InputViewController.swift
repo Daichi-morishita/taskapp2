@@ -16,6 +16,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var categoryTextField: UITextField!
     
     let realm = try! Realm()
     var task: Task!
@@ -31,7 +32,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         titleTextField.text = task.title
         contentsTextView.text = task.contents
         datePicker.date = task.date
-        categoryLabel.text = task.cotegory
+        categoryTextField.text = task.category
         
         // Delegate設定
                pickerView.delegate = self
@@ -72,7 +73,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             self.task.title = self.titleTextField.text!
             self.task.contents = self.contentsTextView.text
             self.task.date = self.datePicker.date
-            self.task.cotegory = self.categoryLabel.text!
+            self.task.category = self.categoryTextField.text!
             self.realm.add(self.task, update: .modified)
         }
         setNotification(task: task)   // 追加
