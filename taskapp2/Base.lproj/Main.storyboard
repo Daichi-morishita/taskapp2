@@ -130,9 +130,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2AF-NU-Izh">
-                                <rect key="frame" x="111" y="695" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2AF-NU-Izh">
+                                <rect key="frame" x="0.0" y="625" width="414" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -146,6 +145,7 @@
                             <constraint firstItem="af8-f7-bF6" firstAttribute="top" secondItem="mIU-ke-uGd" secondAttribute="top" constant="10" id="BSG-wC-qkg"/>
                             <constraint firstItem="Mn2-Qw-RIo" firstAttribute="leading" secondItem="ukf-C9-INs" secondAttribute="leading" id="Dyq-z8-ngy"/>
                             <constraint firstItem="2uG-sN-Emn" firstAttribute="top" secondItem="wnF-HH-rUF" secondAttribute="bottom" constant="10" id="EzH-WQ-wKY"/>
+                            <constraint firstItem="2AF-NU-Izh" firstAttribute="leading" secondItem="mIU-ke-uGd" secondAttribute="leading" id="MHY-TZ-J3G"/>
                             <constraint firstItem="mIU-ke-uGd" firstAttribute="trailing" secondItem="af8-f7-bF6" secondAttribute="trailing" constant="10" id="MJN-fw-ikg"/>
                             <constraint firstItem="O7V-Cv-T9U" firstAttribute="leading" secondItem="mIU-ke-uGd" secondAttribute="leading" constant="10" id="MY7-bq-awF"/>
                             <constraint firstItem="mIU-ke-uGd" firstAttribute="trailing" secondItem="O7V-Cv-T9U" secondAttribute="trailing" constant="10" id="Msc-ft-pcC"/>
@@ -155,6 +155,8 @@
                             <constraint firstItem="2uG-sN-Emn" firstAttribute="trailing" secondItem="mIU-ke-uGd" secondAttribute="trailing" id="U7d-fP-hqH"/>
                             <constraint firstItem="wnF-HH-rUF" firstAttribute="leading" secondItem="mIU-ke-uGd" secondAttribute="leading" constant="10" id="WeT-fG-xYx"/>
                             <constraint firstItem="2uG-sN-Emn" firstAttribute="leading" secondItem="mIU-ke-uGd" secondAttribute="leading" id="Zeq-Lc-AkF"/>
+                            <constraint firstItem="mIU-ke-uGd" firstAttribute="trailing" secondItem="2AF-NU-Izh" secondAttribute="trailing" id="Zr8-6o-4yh"/>
+                            <constraint firstItem="2AF-NU-Izh" firstAttribute="top" secondItem="2uG-sN-Emn" secondAttribute="bottom" constant="10" id="eOR-1s-ges"/>
                             <constraint firstItem="HW4-Zi-Wln" firstAttribute="leading" secondItem="mIU-ke-uGd" secondAttribute="leading" constant="10" id="j6g-1H-vHO"/>
                             <constraint firstItem="k33-4V-NZC" firstAttribute="top" secondItem="HW4-Zi-Wln" secondAttribute="bottom" constant="10" id="k4N-uc-GAu"/>
                             <constraint firstItem="wnF-HH-rUF" firstAttribute="top" secondItem="Mn2-Qw-RIo" secondAttribute="bottom" constant="10" id="sjj-AH-TPQ"/>

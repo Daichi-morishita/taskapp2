@@ -35,10 +35,14 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         categoryTextField.text = task.category
         
         // Delegate設定
-               pickerView.delegate = self
-               pickerView.dataSource = self
-        
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        //今回使わなかったので隠している。
+        pickerView.isHidden = true
     }
+    
+    //ここから今回使わなかったコード。
+    //task.categoryの部分を変えると使える
     // UIPickerViewの列の数
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -63,10 +67,11 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                     didSelectRow row: Int,
                     inComponent component: Int) {
         
-         categoryLabel.text = dataList[row]
+        categoryLabel.text = dataList[row]
         categoryLabel.textColor = UIColor.red
         
     }
+    //ここまで使わなかった。
     
     override func viewWillDisappear(_ animated: Bool) {
         try! realm.write {

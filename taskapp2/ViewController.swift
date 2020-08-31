@@ -14,9 +14,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
- // Realmインスタンスを取得する
+    // Realmインスタンスを取得する
     let realm = try! Realm()  // ←追加
-
+    
     // DB内のタスクが格納されるリスト。
     // 日付の近い順でソート：昇順
     // 以降内容をアップデートするとリスト内は自動的に更新される。
@@ -30,14 +30,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
         //デリゲート先を自分に設定する。
-               searchBar.delegate = self
+        searchBar.delegate = self
         searchBar.showsCancelButton = true
         searchBar.enablesReturnKeyAutomatically = true
-
-               //何も入力されていなくてもReturnキーを押せるようにする。
-               searchBar.enablesReturnKeyAutomatically = false
-
-           
+        
+        //何も入力されていなくてもReturnキーを押せるようにする。
+        searchBar.enablesReturnKeyAutomatically = false
+        
+        
         
     }
     
@@ -107,11 +107,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //検索ボタン押下時の呼び出しメソッド
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
+        
+        //型がオプショナルなのでstring型に直す必要がある。
+        //searchBarがオプショナルなのでguard let のコードを使って、アンラップする。
+        //型が違うと文字が一緒でも検索結果に引っかからない。
         guard let searchText = searchBar.text else {return}
-       
+        
         //条件として、検索文字がカテゴリーと一致するものを検索すること
-        let result = realm.objects(Task.self).filter("category BEGINSWITH '\(String(describing: searchBar.text))'")
-       //検索結果の件数を取得する。
+        let result = realm.objects(Task.self).filter("category BEGINSWITH '\(searchText)'")
+        //検索結果の件数を取得する。
         let count = result.count
         
         if (count == 0){
@@ -120,7 +124,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             taskArray = result
         }
         
-
+        
         //テーブルを再読み込みする。
         tableView.reloadData()
     }
