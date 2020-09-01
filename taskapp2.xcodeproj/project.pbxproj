@@ -21,7 +21,7 @@
 /* Begin PBXFileReference section */
 		4C8A8802043E25C8436D0605 /* Pods_taskapp2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taskapp2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9519086A15803FACA58BC544 /* Pods-taskapp2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskapp2.release.xcconfig"; path = "Target Support Files/Pods-taskapp2/Pods-taskapp2.release.xcconfig"; sourceTree = "<group>"; };
-		E5FDFB7E24F6441000CE118D /* taskapp2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taskapp2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5FDFB7E24F6441000CE118D /* taskapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taskapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5FDFB8124F6441000CE118D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5FDFB8324F6441000CE118D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E5FDFB8A24F6441000CE118D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		E5FDFB7F24F6441000CE118D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E5FDFB7E24F6441000CE118D /* taskapp2.app */,
+				E5FDFB7E24F6441000CE118D /* taskapp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,7 +116,7 @@
 			);
 			name = taskapp2;
 			productName = taskapp2;
-			productReference = E5FDFB7E24F6441000CE118D /* taskapp2.app */;
+			productReference = E5FDFB7E24F6441000CE118D /* taskapp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -369,7 +369,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.techacademy.daichi.morishita.taskapp2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = taskapp;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -388,7 +388,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.techacademy.daichi.morishita.taskapp2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = taskapp;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -118,12 +118,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //検索結果の件数を取得する。
         let count = result.count
         
+        //検索結果が０の場合その言葉を含んだ結果が出る。
         if (count == 0){
-            taskArray = realm.objects(Task.self)
+            taskArray = realm.objects(Task.self).filter("category CONTAINS '\(searchText)'")
         }else {
             taskArray = result
         }
-        
+        if searchText == ""{
+            taskArray = realm.objects(Task.self)
+        }
         
         //テーブルを再読み込みする。
         tableView.reloadData()
